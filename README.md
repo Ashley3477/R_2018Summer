@@ -1,4 +1,4 @@
-# 2018資料科學程式設計a
+# 2018資料科學程式設計
 
 106-3 R data science course
 
@@ -19,5 +19,5 @@
 	◇At home
 
 	◇notebook
-		* [Getting Started With GitHub](https://youtu.be/ci3W1T88mzw)
-		* [Creating a Read Me File in Markdown](https://youtu.be/yXY3f9jw7fg)
+		[Getting Started With GitHub](https://youtu.be/ci3W1T88mzw)
+		[Creating a Read Me File in Markdown](https://youtu.be/yXY3f9jw7fg)
