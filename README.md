@@ -1,4 +1,4 @@
-# 2018資料科學程式設計
+# 2018資料科學程式設計a
 
 106-3 R data science course
 
@@ -17,4 +17,6 @@
 		* install R and RStudio
 		* Create a Read Me File in Markdown
 	◇At home
-		
+
+	◇notebook
+[Getting Started With GitHub](https://youtu.be/ci3W1T88mzw)
