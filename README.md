@@ -19,4 +19,5 @@
 	◇At home
 
 	◇notebook
-[Getting Started With GitHub](https://youtu.be/ci3W1T88mzw)
+		* [Getting Started With GitHub](https://youtu.be/ci3W1T88mzw)
+		* [Creating a Read Me File in Markdown](https://youtu.be/yXY3f9jw7fg)
