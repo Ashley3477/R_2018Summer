@@ -5,7 +5,7 @@ date: "2018年7月8日"
 output: html_document
 ---
 變數
-markdown[hw1](D:/R_2018Summer/Week_1/hw1.html)
+markdown [hw1](https://ashley3477.github.io/R_2018Summer/Week_1/hw1.html)
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
