@@ -17,8 +17,8 @@
 
 # week_1
 
-	◇In class
-		  i. Create github account
+- In class
+	1. Create github account
 		 ii. Setup Readme and file
 		iii. install R and RStudio
 		 iv. Create a ReadMe File in Markdown 
@@ -29,4 +29,4 @@
 
 
 	◇notebook
-[hw1](https://ashley3477.github.io/R_2018Summer/R_2018Summer/Week_1/hw1.html)
+[hw1](https://ashley3477.github.io/R_2018Summer/Week_1/hw1.html)
