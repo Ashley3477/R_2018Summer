@@ -4,7 +4,7 @@ author: "Ashley"
 date: "2018/07/08"
 output: html_document
 ---
-
+ [hw1](https://ashley3477.github.io/R_2018Summer/Week_1/hw1.html)
 # 變數
 # Ordered Factors
 
