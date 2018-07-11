@@ -1,7 +1,7 @@
 ---
 title: "README.md"
 author: "Ashley"
-date: "2018年7月8日"
+date: "2018/07/08"
 output: html_document
 ---
 
