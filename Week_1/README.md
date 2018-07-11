@@ -4,6 +4,7 @@ author: "Ashley"
 date: "2018年7月8日"
 output: html_document
 ---
+
 # 變數
 # Ordered Factors
 
