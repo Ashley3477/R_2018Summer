@@ -28,3 +28,8 @@
 
 	3. homework
 [hw1](https://ashley3477.github.io/R_2018Summer/Week_1/hw1.html)
+
+# week_2
+
+- [hw2_part1](https://ashley3477.github.io/R_2018Summer/Week_2/task1.html)
+- [hw2_part2]()
