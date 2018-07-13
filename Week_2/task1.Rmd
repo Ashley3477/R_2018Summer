@@ -1,0 +1,26 @@
+---
+title: "task1"
+author: "Ashley"
+date: "2018年7月13日"
+output: html_document
+---
+
+```{r}
+library(ggplot2)
+CO2
+names(CO2)
+# 單變數:類別型
+ggplot(data = CO2, aes(x = Plant)) + geom_bar(fill = "lightblue", colour = "black")
+ggplot(data = CO2, aes(x = Type)) + geom_bar(fill = "lightblue", colour = "black")
+ggplot(data = CO2, aes(x = Treatment)) + geom_bar(fill = "black", colour = "white")
+# 單變數: 連續型
+ggplot(data = CO2, aes(x = conc)) +  geom_histogram(fill = "black", colour = "white")
+# 雙變數:連續vs連續
+ggplot(data = CO2, aes(x = conc, y = uptake)) + geom_point(fill = "lightblue", colour = "black")
+# 雙變數: 離散vs 連續
+ggplot(data = CO2, aes(x = Treatment, y = conc)) + geom_boxplot(fill = "lightblue", colour ="black")
+ggplot(data = CO2, aes(x = Type,  y = conc)) + geom_boxplot(fill = "lightblue", colour ="black")
+ggplot(data = CO2, aes(x = Type,  y =uptake)) + geom_boxplot(fill =
+                                                               "lightblue", colour ="black")
+ggplot(data = CO2, aes(x = Plant,  y = conc)) + geom_boxplot(fill = "lightblue", colour ="black")
+```
