@@ -12,9 +12,9 @@
 #  Something About Me
   哈囉~大家好!我是彭思凱，來自台北大學統計系，希望利用暑假時間熟悉R，之後上分析課程、做專題或是工作能更得心應手，讓R成為解決問題的工具!
   
-  # Progress Report
+# Progress Report
   
-  # week_1
+# week_1
   
   - In class
 1. Create github account
@@ -29,16 +29,23 @@ iv. Create a ReadMe File in Markdown
 
 i. update readme
 
-ii. Finish hw_1
+ii. finish hw_1
 
-iii. parctice Datacamp
+iii. parctice Datacamp: Introduction To R
 
 
 3. homework
-[hw1](https://ashley3477.github.io)
+[hw1](https://ashley3477.github.io/R_2018Summer/Week_1/hw1.html)
 
 # week_2
 
-- [hw2_part1](https://ashley3477.github.io/R_2018Summer/Week_2/task1.html)
-- [hw2_part2]()
+-In class:
+
+1. practice ggplot
+
+
+-At Home:
+
+1. [hw2_part1](https://ashley3477.github.io/R_2018Summer/Week_2/task1.html)
+2. []
 ```
