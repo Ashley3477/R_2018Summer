@@ -46,4 +46,4 @@ iii. parctice Datacamp: Introduction To R
 -At Home:
 
 [hw2_part1](https://ashley3477.github.io/R_2018Summer/Week_2/task1.html)
-2. []
+[hw2_part2](https://ashley3477.github.io/R_2018Summer/Week_2/task2.html)
