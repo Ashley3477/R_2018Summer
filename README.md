@@ -1,4 +1,3 @@
-```{r}
 #  2018資料科學程式設計
 
 ◇課名:106學年度夏季學院【資料科學程式設計】
@@ -48,4 +47,3 @@ iii. parctice Datacamp: Introduction To R
 
 [hw2_part1](https://ashley3477.github.io/R_2018Summer/Week_2/task1.html)
 2. []
-```
