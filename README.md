@@ -15,38 +15,39 @@
   
 # week_1
   
-  - In class
-1. Create github account
+i. In class
+  - Create github account
 
-ii. Setup Readme and file
+  - Setup Readme and file
 
-iii. install R and RStudio
+  - install R and RStudio
 
-iv. Create a ReadMe File in Markdown 
+  - Create a ReadMe File in Markdown 
 
-2. At home
+ii. At home
 
-i. update readme
+  - update readme
 
-ii. finish hw_1
+  - finish hw_1
 
-iii. parctice Datacamp: Introduction To R
+  - parctice Datacamp: Introduction To R
 
 
-3. homework
-  [hw1](https://ashley3477.github.io/R_2018Summer/Week_1/hw1.html)
+iii. homework
+  - [hw1](https://ashley3477.github.io/R_2018Summer/Week_1/hw1.html)
 
 # week_2
 
--In class:
+i. In class:
 
-1. practice ggplot
+  - practice ggplot
 
+  - practice wordclouds
 
--At Home:
+ii. At Home:
 
--[hw2_part1](https://ashley3477.github.io/R_2018Summer/Week_2/task1.html)
+  - [hw2_part1](https://ashley3477.github.io/R_2018Summer/Week_2/task1.html)
 
--[hw2_part2](https://ashley3477.github.io/R_2018Summer/Week_2/task2.html)
+  - [hw2_part2](https://ashley3477.github.io/R_2018Summer/Week_2/task2.html)
 
--DataCamp: Introduction to the tidyverse
+  - DataCamp: Introduction to the tidyverse
