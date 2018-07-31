@@ -1,0 +1,163 @@
+---
+title: ''
+author: "Ashley"
+date: "2018年7月18日"
+output: html_document
+---
+
+# Data from
+https://www.kaggle.com/msjgriffiths/explore-sf-salary-data/code
+```{r}
+payback <- read.csv("DATA/collegesalaries/payback.csv")
+college_type <- read.csv( "DATA/collegesalaries/college_type.csv")
+region <- read.csv("DATA/collegesalaries/region.csv")
+```
+library(tidyverse)
+
+```{r}
+library(tidyverse)
+csv_files <- list.files(pattern = ".csv")
+
+df_payback <- read.csv("DATA/collegesalaries/payback.csv",
+                   col_names = c("major", "start_med_slry", "mid_car_slry",
+                                 "percent_chng", "mid_car_10th", "mid_car_25th",
+                                 "mid_car_75th", "mid_car_90th"),  # short names w/o whitespace
+                   col_types = "cnndnnnn",  # specify column types to coerce '$' to numeric
+                   skip = 1)  # names specified, skip header
+```
+```{r}
+df_college_type <- read.csv("DATA/collegesalaries/college_type.csv",
+                   col_names = c("school_name", "school_type", "start_med_slry",
+                                 "mid_car_slry", "mid_car_10th", "mid_car_25th",
+                                 "mid_car_75th", "mid_car_90th"),
+                   col_types = "ccnnnnnn", skip = 1)
+
+dfregion <- read.csv("DATA/collegesalaries/region.csv",
+                   col_names = c("school_name", "region", "start_med_slry",
+                                 "mid_car_slry", "mid_car_10th", "mid_car_25th",
+                                 "mid_car_75th", "mid_car_90th"),
+                   col_types = "ccnnnnnn", skip = 1)
+```
+```{r}
+# multiple college regions
+library(tidyverse)
+
+dfregion %>%
+  group_by(school_name) %>%
+  mutate(count = n()) %>%
+  filter(count > 1)
+```
+```{r}
+# 1.2 Missing data
+
+# named vector to data frame
+
+nmd_vec_to_df <- function(x, start_col) {
+  nms <- names(x)
+  dta <- unname(x)
+  df <- data.frame()
+  df <- rbind(df, dta)
+  names(df) <- nms
+  return(df[, start_col:length(colnames(df))])
+}
+
+colSums(is.na(df_payback)) %>% nmd_vec_to_df(2)
+
+
+```
+```{r}
+colSums(is.na(df_college_type)) %>% nmd_vec_to_df(3)
+```
+```{r}
+colSums(is.na(dfregion)) %>% nmd_vec_to_df(3)
+```
+```{r}
+# 2 Analysis of Salaries
+
+# 2.1 Distribution of starting and mid-career salaries
+
+# select starting and mid-career salaries and reformat to long
+df_start_vs_med <- dfregion %>%
+  select(start_med_slry, mid_car_slry) %>%
+  gather(timeline, salary) %>%
+  mutate(timeline = as_factor(timeline, fct_rev))  # reverse levels, start salary first
+
+# plot histogram with height as density and smoothed density
+library(scales)
+ggplot(df_start_vs_med, aes(salary, fill = timeline)) +
+  geom_density(alpha = 0.2, color = NA) +
+  geom_histogram(aes(y = ..density..), alpha = 0.5, position = 'dodge') +
+  scale_fill_manual(values = c('darkgreen', 'purple4')) +
+  scale_x_continuous(labels = dollar) +
+  theme(legend.position = "top",
+        axis.text.y = element_blank(), axis.ticks.y = element_blank())
+```
+```{r}
+# 2.2 Any correlation between starting and mid-career salaries?
+
+ggplot(dfregion, aes(start_med_slry, mid_car_slry)) +
+  geom_point(alpha = 0.6) +
+  geom_smooth(se = F) +  # loess fit
+  scale_x_continuous(labels = dollar) +
+  scale_y_continuous(labels = dollar)
+```
+
+
+
+```{r}
+# Salaries by major 
+
+# - How do salaries differ by degree? Which majors show the highest starting and mid-career salaries?
+  
+p1 <- ggplot(df_payback, aes(x = reorder(major, start_med_slry), start_med_slry)) +
+  geom_col(fill = "darkgreen", alpha = 0.5) +
+  geom_col(aes(x = reorder(major, mid_car_slry), mid_car_slry), alpha = 0.3) +
+  geom_text(aes(label = dollar(start_med_slry)), size = 3, hjust = 1.1) +
+  scale_y_continuous(labels = dollar) +
+  xlab(NULL) +
+  coord_flip() +
+  ggtitle("ordered by starting salary")
+
+p2 <- ggplot(df_payback, aes(x = reorder(major, mid_car_slry), mid_car_slry)) +
+  geom_col(alpha = 0.5, fill = 'purple4') +
+  geom_col(aes(x = reorder(major, mid_car_slry), start_med_slry), alpha = 0.4) +
+  geom_text(aes(label = dollar(mid_car_slry)), size = 3, hjust = -0.1) +
+  scale_fill_manual(values = c('darkgreen', 'purple4')) +
+  scale_y_reverse(labels = dollar) +
+  scale_x_discrete(position = 'top') +
+  xlab(NULL) +
+  coord_flip() +
+  ggtitle("ordered by mid-career salary (50th percentile)")
+
+library(gridExtra)
+grid.arrange(p1, p2, nrow = 1)
+```
+```{r}
+ggplot(df_payback, aes(x = reorder(major, percent_chng), mid_car_slry)) +
+  geom_col(alpha = 0.5) +
+  geom_col(aes(x = reorder(major, percent_chng), start_med_slry), alpha = 0.4) +
+  geom_text(aes(label = percent(percent_chng / 100)), size = 3, hjust = 1.1) +
+  scale_y_continuous(labels = dollar) +
+  xlab(NULL) +
+  ylab('salary') +
+  coord_flip() +
+  ggtitle("ordered by percent change")
+```
+```{r}
+# from wide to long format for mid-career percentiles
+df_maj_mid_car <- df_payback %>%
+  select(-start_med_slry, -percent_chng) %>%
+  mutate(mid90th = mid_car_90th) %>%
+  gather(percentile, salary, mid_car_10th:mid_car_90th)
+
+ggplot(df_maj_mid_car, aes(x = reorder(major, mid90th),
+                           y = salary,
+                           color = percentile), color = 'gray') +
+  geom_point(shape = 12) +
+  scale_color_brewer(type = 'div') +
+  scale_y_continuous(labels = dollar, sec.axis = dup_axis()) +
+  labs(x = NULL, y = NULL) +
+  coord_flip() +
+  ggtitle("mid-career salary by highest 90th percentile") +
+  theme(legend.position = "top")
+```
