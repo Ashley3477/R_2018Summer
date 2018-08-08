@@ -1,0 +1,22 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1533102502192.000,
+    "dirty" : true,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "A2D331BF",
+    "lastKnownWriteTime" : 1533703099,
+    "last_content_update" : 1533703648159,
+    "path" : "D:/R_2018Summer/Week_5/Myshiny/app.R",
+    "project_path" : "app.R",
+    "properties" : {
+        "cursorPosition" : "45,26",
+        "scrollLine" : "31"
+    },
+    "relative_order" : 1,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

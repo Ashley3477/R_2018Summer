@@ -15,30 +15,6 @@ region <- read.csv("DATA/collegesalaries/region.csv")
 library(tidyverse)
 
 ```{r}
-library(tidyverse)
-csv_files <- list.files(pattern = ".csv")
-
-df_payback <- read.csv("DATA/collegesalaries/payback.csv",
-                   col_names = c("major", "start_med_slry", "mid_car_slry",
-                                 "percent_chng", "mid_car_10th", "mid_car_25th",
-                                 "mid_car_75th", "mid_car_90th"),  # short names w/o whitespace
-                   col_types = "cnndnnnn",  # specify column types to coerce '$' to numeric
-                   skip = 1)  # names specified, skip header
-```
-```{r}
-df_college_type <- read.csv("DATA/collegesalaries/college_type.csv",
-                   col_names = c("school_name", "school_type", "start_med_slry",
-                                 "mid_car_slry", "mid_car_10th", "mid_car_25th",
-                                 "mid_car_75th", "mid_car_90th"),
-                   col_types = "ccnnnnnn", skip = 1)
-
-dfregion <- read.csv("DATA/collegesalaries/region.csv",
-                   col_names = c("school_name", "region", "start_med_slry",
-                                 "mid_car_slry", "mid_car_10th", "mid_car_25th",
-                                 "mid_car_75th", "mid_car_90th"),
-                   col_types = "ccnnnnnn", skip = 1)
-```
-```{r}
 # multiple college regions
 library(tidyverse)
 
@@ -160,4 +136,10 @@ ggplot(df_maj_mid_car, aes(x = reorder(major, mid90th),
   coord_flip() +
   ggtitle("mid-career salary by highest 90th percentile") +
   theme(legend.position = "top")
+```
+```{r}
+require(ggplot2)
+ggplot(data = region, aes(x = Undergraduate Major, y = Starting Median Salary)) + geom_boxplot() + coord_flip() +
+ labs( y = 'Undergraduate Major', x ='Starting Median Salary', 
+                 title = 'How to select major')
 ```
