@@ -43,7 +43,7 @@ server <- function(input, output) {
     barplot(First[,grep(input$salary,c(colnames(First))),1:30],
             main=input$salary,
             ylab="salary",
-            xlab="Year",
+            xlab="男性v.s.女性
             col=rainbow(5),
             width = 0.2)
   })
