@@ -19,7 +19,7 @@ library(readxl)
 問卷結果<- read_excel("001.xlsx")
 
 X100_104career_mean1 <- read_excel("100_104career_mean1.xlsx")
-salary <- read_excel("salary.xlsx")
+salary <- read.csv("salary.csv",header = TRUE)
 qa<-
 
 # Define UI for application that draws a histogram
